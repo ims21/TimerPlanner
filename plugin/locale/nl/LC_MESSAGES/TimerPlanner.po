@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TimerPlanner\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-14 08:50+0100\n"
+"POT-Creation-Date: 2026-11-14 19:00+0100\n"
 "PO-Revision-Date: 2026-11-13 12:18+0100\n"
 "Last-Translator: ims <ims@openpli.org>\n"
 "Language-Team: Nederlands\n"
@@ -100,10 +100,6 @@ msgstr "Lijst verwijderen"
 #, python-format
 msgid "Delete list '%s'?"
 msgstr "Lijst '%s' verwijderen?"
-
-#: ../settings.py:102
-msgid "Event duration - temporary setting"
-msgstr "Programmaduur - tijdelijke instelling"
 
 #: ../ui.py:264
 msgid "Events alphabetically"
@@ -226,10 +222,6 @@ msgstr "Opslaan"
 msgid "Save as list"
 msgstr "Opslaan als lijst"
 
-#: ../ui.py:304
-msgid "Select action"
-msgstr "Actie selecteren"
-
 #: ../services.py:36 ../services.py:48
 msgid "Select service for TimerPlanner"
 msgstr "Kies een zender voor TimerPlanner"
@@ -289,8 +281,14 @@ msgstr ""
 msgid "Standard"
 msgstr "Standaard"
 
-#: ../settings.py:106 ../settings.py:107
-msgid "Temporary setting. Applies only until TimerPlanner is closed."
+#: ../settings.py:107
+#, fuzzy
+msgid "Temporary maximum event duration. Valid until the plugin is closed."
+msgstr "Tijdelijke instelling. Geldt alleen totdat TimerPlanner wordt afgesloten."
+
+#: ../settings.py:106
+#, fuzzy
+msgid "Temporary minimum event duration. Valid until the plugin is closed."
 msgstr "Tijdelijke instelling. Geldt alleen totdat TimerPlanner wordt afgesloten."
 
 #: ../services.py:268
@@ -309,15 +307,25 @@ msgstr "Timer planner voor geselecteerde zenders"
 msgid "TimerPlanner"
 msgstr "TimerPlanner"
 
+#: ../ui.py:305
+#, fuzzy
+msgid "TimerPlanner - Select action"
+msgstr "TimerPlanner v%s - Instellingen"
+
 #: ../services.py:97 ../services.py:155
 msgid "TimerPlanner - Services"
 msgstr "TimerPlanner - Zenders"
+
+#: ../settings.py:102
+#, fuzzy
+msgid "TimerPlanner - temporary settings"
+msgstr "TimerPlanner v%s - Instellingen"
 
 #: ../settings.py:29
 #, python-format
 msgid "TimerPlanner v%s - Settings"
 msgstr "TimerPlanner v%s - Instellingen"
 
-#: ../ui.py:214 ../ui.py:415
+#: ../ui.py:214 ../ui.py:416
 msgid "Zap"
 msgstr "Zappen"

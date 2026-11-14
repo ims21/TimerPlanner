@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-14 08:50+0100\n"
-"PO-Revision-Date: 2026-11-14 08:51+0100\n"
+"POT-Creation-Date: 2026-11-14 19:00+0100\n"
+"PO-Revision-Date: 2026-11-14 19:02+0100\n"
 "Last-Translator: ims <ims@openpli.org>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -102,10 +102,6 @@ msgstr "Smazat seznam"
 #, python-format
 msgid "Delete list '%s'?"
 msgstr "Opravdu smazat seznam '%s'?"
-
-#: ../settings.py:102
-msgid "Event duration - temporary setting"
-msgstr "Délka pořadů - dočasné nastavení"
 
 #: ../ui.py:264
 msgid "Events alphabetically"
@@ -226,10 +222,6 @@ msgstr "Uložit"
 msgid "Save as list"
 msgstr "Uložit jako seznam"
 
-#: ../ui.py:304
-msgid "Select action"
-msgstr ""
-
 #: ../services.py:36 ../services.py:48
 msgid "Select service for TimerPlanner"
 msgstr "Vyberte program pro TimerPlanner"
@@ -290,9 +282,13 @@ msgstr "Zobrazovat sloupec s minimálním věkem vždy, bez ohledu na režim tř
 msgid "Standard"
 msgstr "Standardní"
 
-#: ../settings.py:106 ../settings.py:107
-msgid "Temporary setting. Applies only until TimerPlanner is closed."
-msgstr "Dočasné nastavení. Používá se pouze do zavření pluginu."
+#: ../settings.py:107
+msgid "Temporary maximum event duration. Valid until the plugin is closed."
+msgstr "Maximální dočasná délka zobrazovaných pořadů. Platí do vypnutí pluginu."
+
+#: ../settings.py:106
+msgid "Temporary minimum event duration. Valid until the plugin is closed."
+msgstr "Minimální dočasná délka zobrazovaných pořadů. Platí do vypnutí pluginu."
 
 #: ../services.py:268
 msgid "This service is already selected."
@@ -310,15 +306,23 @@ msgstr "Plánovač časovačů pro zvolené programy"
 msgid "TimerPlanner"
 msgstr "TimerPlanner"
 
+#: ../ui.py:305
+msgid "TimerPlanner - Select action"
+msgstr "TimerPlanner - zvolte akci"
+
 #: ../services.py:97 ../services.py:155
 msgid "TimerPlanner - Services"
 msgstr "TimerPlanner - programy"
+
+#: ../settings.py:102
+msgid "TimerPlanner - temporary settings"
+msgstr "TimerPlanner - dočasná nastavení"
 
 #: ../settings.py:29
 #, python-format
 msgid "TimerPlanner v%s - Settings"
 msgstr "TimerPlanner v%s - nastavení"
 
-#: ../ui.py:214 ../ui.py:415
+#: ../ui.py:214 ../ui.py:416
 msgid "Zap"
 msgstr "Přepnout"

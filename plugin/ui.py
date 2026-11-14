@@ -301,7 +301,8 @@ class TimerPlannerSelection(EPGSelection):
 		def selected(choice):
 			if choice:
 				choice[1]()
-		self.session.openWithCallback(selected, ChoiceBox, title=_("Select action"), list=menu, keys=keys)
+		dialog = self.session.openWithCallback(selected, ChoiceBox, list=menu, keys=keys)
+		dialog.setTitle(_("TimerPlanner - Select action"))
 
 	def openDurationFilter(self):
 		from .settings import TimerPlannerDurationSetup

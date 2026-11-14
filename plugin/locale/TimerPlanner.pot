@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-14 08:50+0100\n"
+"POT-Creation-Date: 2026-11-14 19:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,10 +95,6 @@ msgstr ""
 #: ../services.py:232
 #, python-format
 msgid "Delete list '%s'?"
-msgstr ""
-
-#: ../settings.py:102
-msgid "Event duration - temporary setting"
 msgstr ""
 
 #: ../ui.py:264
@@ -220,10 +216,6 @@ msgstr ""
 msgid "Save as list"
 msgstr ""
 
-#: ../ui.py:304
-msgid "Select action"
-msgstr ""
-
 #: ../services.py:36 ../services.py:48
 msgid "Select service for TimerPlanner"
 msgstr ""
@@ -283,8 +275,12 @@ msgstr ""
 msgid "Standard"
 msgstr ""
 
-#: ../settings.py:106 ../settings.py:107
-msgid "Temporary setting. Applies only until TimerPlanner is closed."
+#: ../settings.py:107
+msgid "Temporary maximum event duration. Valid until the plugin is closed."
+msgstr ""
+
+#: ../settings.py:106
+msgid "Temporary minimum event duration. Valid until the plugin is closed."
 msgstr ""
 
 #: ../services.py:268
@@ -303,8 +299,16 @@ msgstr ""
 msgid "TimerPlanner"
 msgstr ""
 
+#: ../ui.py:305
+msgid "TimerPlanner - Select action"
+msgstr ""
+
 #: ../services.py:97 ../services.py:155
 msgid "TimerPlanner - Services"
+msgstr ""
+
+#: ../settings.py:102
+msgid "TimerPlanner - temporary settings"
 msgstr ""
 
 #: ../settings.py:29
@@ -312,6 +316,6 @@ msgstr ""
 msgid "TimerPlanner v%s - Settings"
 msgstr ""
 
-#: ../ui.py:214 ../ui.py:415
+#: ../ui.py:214 ../ui.py:416
 msgid "Zap"
 msgstr ""

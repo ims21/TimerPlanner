@@ -99,12 +99,12 @@ class TimerPlannerDurationSetup(TimerPlannerSetup):
 
 	def __init__(self, session, minimum, maximum):
 		TimerPlannerSetup.__init__(self, session)
-		self.setTitle(_("Event duration - temporary setting"))
+		self.setTitle(_("TimerPlanner - temporary settings"))
 		self.duration = ConfigSelection(default=str(minimum), choices=duration_choices)
 		self.maximum = ConfigSelection(default=str(maximum), choices=duration_choices)
 		self.entries = [
-			(_("Hide events shorter than"), self.duration, _("Temporary setting. Applies only until TimerPlanner is closed.")),
-			(_("Hide events longer than"), self.maximum, _("Temporary setting. Applies only until TimerPlanner is closed.")),
+			(_("Hide events shorter than"), self.duration, _("Temporary minimum event duration. Valid until the plugin is closed.")),
+			(_("Hide events longer than"), self.maximum, _("Temporary maximum event duration. Valid until the plugin is closed.")),
 		]
 		self["config"].setList(self.entries)
 		self["key_green"].setText(_("Apply"))
