@@ -4,7 +4,7 @@ from . import _
 
 
 config.plugins.timerplanner = ConfigSubsection()
-config.plugins.timerplanner.hide_started = ConfigSelection(default="true", choices=[
+config.plugins.timerplanner.hide_started = ConfigSelection(default="ended", choices=[
 	("false", _("No")),
 	("ended", _("Finished")),
 	("true", _("Finished and ongoing")),
