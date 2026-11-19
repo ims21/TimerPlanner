@@ -97,10 +97,10 @@ class TimerPlannerList(EPGList):
 		now = time()
 		ended = beginTime is not None and duration is not None and beginTime + duration <= now
 		ongoing = beginTime is not None and duration is not None and beginTime <= now < beginTime + duration
+		event_end = self.descr_rect.x + self.sidesMargin + self.descr_rect.w
 		# progress bars for ongoing events
 		progress_width = applySkinFactor(40) if ongoing and cfg.showprogress.value else 0
 		progress_gap = applySkinFactor(8)
-		event_end = self.descr_rect.x + self.sidesMargin + self.descr_rect.w
 		progress_x = event_end - progress_width
 		# SingleEPG offsets the event text after timer icons but keeps its full
 		# width. Clip it to our narrower event column so it cannot cover the
