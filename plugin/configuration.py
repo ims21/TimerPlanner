@@ -10,6 +10,7 @@ config.plugins.timerplanner.hide_started = ConfigSelection(default="ended", choi
 	("true", _("Finished and ongoing")),
 ])
 config.plugins.timerplanner.showprogress = ConfigYesNo(default=True)
+config.plugins.timerplanner.update_event_status = ConfigYesNo(default=True)
 config.plugins.timerplanner.currentservice = ConfigYesNo(default=False)
 duration_choices = [("0", _("No limit"))] + [(str(minutes), _("%d min") % minutes) for minutes in range(10, 241, 5)]
 config.plugins.timerplanner.minimum_duration = ConfigSelection(default="0", choices=duration_choices)

@@ -8,7 +8,7 @@ from Components.config import config
 from Screens.EpgSelection import EPGSelection
 from Screens.MessageBox import MessageBox
 from Tools.Directories import SCOPE_CONFIG, resolveFilename
-from enigma import RT_HALIGN_LEFT, RT_VALIGN_CENTER, eListboxPythonMultiContent, gFont
+from enigma import RT_HALIGN_LEFT, RT_VALIGN_CENTER, eListboxPythonMultiContent, eTimer, gFont
 
 from skin import applySkinFactor, parseScale
 
@@ -18,7 +18,7 @@ from .epgdata import collect_events, event_key, selection_index, sort_events
 from .services import TimerPlannerServiceEditor, service_name
 from .storage import load_legacy_services, load_services
 
-VERSION = "1.04"
+VERSION = "1.05"
 
 COLOR_GRAY = 0x00D0D0D0
 COLOR_RATING = 0x000080B0
@@ -239,6 +239,11 @@ class TimerPlannerSelection(EPGSelection):
 		self["key_red"].setText(_("Zap"))
 		self.custom_ready = True
 		self.onShown.append(self.refreshTimerIcons)
+		self.eventStatusTimer = eTimer()
+		self.eventStatusTimer.callback.append(self.updateEventStatus)
+		self.onShown.append(self.updateEventStatus)
+		self.onHide.append(self.eventStatusTimer.stop)
+		self.onClose.append(self.eventStatusTimer.stop)
 		# FallbackTimerList can defer onCreate until remote timers arrive.
 		# Always populate at layout time as well; never fill an uncreated widget.
 		if self.onCreate not in self.onLayoutFinish:
@@ -429,6 +434,13 @@ class TimerPlannerSelection(EPGSelection):
 
 	def prevBouquet(self):
 		self["list"].instance.moveSelection(self["list"].instance.pageUp)
+
+	def updateEventStatus(self):
+		self.eventStatusTimer.stop()
+		if cfg.update_event_status.value and cfg.hide_started.value != "true":
+			self["list"].l.invalidate()
+			# Schedule just after the next full minute of the box clock.
+			self.eventStatusTimer.start(int((60 - time() % 60) * 1000) + 20, True)
 
 	def refreshTimerIcons(self):
 		# Rebuild cached rows after returning from timer dialogs/overview.

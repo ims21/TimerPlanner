@@ -38,6 +38,7 @@ class TimerPlannerSetup(Screen, ConfigListScreen, HelpableScreen):
 		if cfg.hide_started.value != "true":
 			menu.append((4 * " " + _("Show progress bars"), cfg.showprogress, _("Show event progress bars for ongoing events.")))
 			menu.append((4 * " " + _("Cursor on current service"), cfg.currentservice, _("Set cursor to the currently playing event when opening TimerPlanner.")))
+			menu.append((4 * " " + _("Update event status every minute"), cfg.update_event_status, _("Update progress bars and event colors every minute without reloading the EPG list.")))
 		menu.append((_("Hide events shorter than"), cfg.minimum_duration, _("Default setting for the minimum duration of displayed events.")))
 		menu.append((_("Hide events longer than"), cfg.maximum_duration, _("Default setting for the maximum duration of displayed events.")))
 		menu.append((_("Alphabetical sorting"), cfg.alphabetsort, _("Applies to 'A-Z' only. 'Standard' disables character conversion.")))
@@ -72,12 +73,13 @@ class TimerPlannerSetup(Screen, ConfigListScreen, HelpableScreen):
 		if cfg.hide_started.value == "true":
 			cfg.currentservice.save()
 			cfg.showprogress.save()
+			cfg.update_event_status.save()
 		configfile.save()
 		self.refreshPlugins()
 		self.close(True)
 
 	def keyCancel(self):
-		if self["config"].isChanged() or cfg.currentservice.isChanged() or cfg.showprogress.isChanged():
+		if self["config"].isChanged() or cfg.currentservice.isChanged() or cfg.showprogress.isChanged() or cfg.update_event_status.isChanged():
 			self.session.openWithCallback(self.cancelConfirmed, MessageBox,
 				_("Close without saving changes?"), MessageBox.TYPE_YESNO, default=False)
 		else:
@@ -89,6 +91,7 @@ class TimerPlannerSetup(Screen, ConfigListScreen, HelpableScreen):
 				entry[1].cancel()
 			cfg.currentservice.cancel()
 			cfg.showprogress.cancel()
+			cfg.update_event_status.cancel()
 			self.close(False)
 
 	def refreshPlugins(self):
