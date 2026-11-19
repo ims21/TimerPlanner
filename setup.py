@@ -3,7 +3,7 @@ import setup_translate
 
 pkg = 'Extensions.TimerPlanner'
 setup (name = 'enigma2-plugin-extensions-timerplanner',
-	version = '1.04',
+	version = '1.05',
 	description = 'Timer planner for selected services',
 	packages = [pkg],
 	package_dir = {pkg: 'plugin'},

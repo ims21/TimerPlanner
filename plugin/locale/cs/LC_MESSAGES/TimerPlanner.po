@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:45+0100\n"
-"PO-Revision-Date: 2026-11-19 09:49+0100\n"
+"POT-Creation-Date: 2026-11-19 12:01+0100\n"
+"PO-Revision-Date: 2026-11-19 12:07+0100\n"
 "Last-Translator: ims <ims@openpli.org>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
 "X-Generator: Poedit 3.10\n"
 
-#: ../configuration.py:14
+#: ../configuration.py:15
 #, python-format
 msgid "%d min"
 msgstr ""
@@ -27,23 +27,23 @@ msgstr ""
 msgid "Add"
 msgstr "Přidat"
 
-#: ../settings.py:43
+#: ../settings.py:44
 msgid "Alphabetical sorting"
 msgstr "Abecední třídění"
 
-#: ../settings.py:44
+#: ../settings.py:45
 msgid "Always show rating"
 msgstr "Vždy zobrazovat minimální věk"
 
-#: ../settings.py:43
+#: ../settings.py:44
 msgid "Applies to 'A-Z' only. 'Standard' disables character conversion."
 msgstr "Projeví se při řazení 'A-Z'. Volba 'Standardní' vypíná převod znaků."
 
-#: ../settings.py:113
+#: ../settings.py:116
 msgid "Apply"
 msgstr "Použít"
 
-#: ../configuration.py:19
+#: ../configuration.py:20
 msgid "CS/SK"
 msgstr ""
 
@@ -60,7 +60,7 @@ msgstr ""
 "Operace se seznamem programů se nezdařila:\n"
 "%s"
 
-#: ../ui.py:260 ../services.py:140
+#: ../ui.py:265 ../services.py:140
 #, python-format
 msgid ""
 "Cannot load TimerPlanner settings:\n"
@@ -78,7 +78,7 @@ msgstr ""
 "Nelze uložit nastavení TimerPlanner:\n"
 "%s"
 
-#: ../settings.py:82 ../services.py:291
+#: ../settings.py:84 ../services.py:291
 msgid "Close without saving changes?"
 msgstr "Zavřít bez uložení?"
 
@@ -86,11 +86,11 @@ msgstr "Zavřít bez uložení?"
 msgid "Cursor on current service"
 msgstr "Kurzor na aktuální program"
 
-#: ../settings.py:42
+#: ../settings.py:43
 msgid "Default setting for the maximum duration of displayed events."
 msgstr "Výchozí nastavení pro maximální délku zobrazovaných pořadů."
 
-#: ../settings.py:41
+#: ../settings.py:42
 msgid "Default setting for the minimum duration of displayed events."
 msgstr "Výchozí nastavení pro minimální délku zobrazovaných pořadů."
 
@@ -103,15 +103,15 @@ msgstr "Smazat seznam"
 msgid "Delete list '%s'?"
 msgstr "Opravdu smazat seznam '%s'?"
 
-#: ../ui.py:289
+#: ../ui.py:294
 msgid "Events alphabetically"
 msgstr "události abecedně"
 
-#: ../ui.py:289
+#: ../ui.py:294
 msgid "Events by rating"
 msgstr "události podle věku"
 
-#: ../ui.py:289
+#: ../ui.py:294
 msgid "Events by time"
 msgstr "události podle času"
 
@@ -131,11 +131,11 @@ msgstr "Dokončené a probíhající"
 msgid "Hide events"
 msgstr "Skrývat pořady"
 
-#: ../settings.py:42 ../settings.py:110
+#: ../settings.py:43 ../settings.py:113
 msgid "Hide events longer than"
 msgstr "Nezobrazovat pořady delší než"
 
-#: ../settings.py:41 ../settings.py:109
+#: ../settings.py:42 ../settings.py:112
 msgid "Hide events shorter than"
 msgstr "Nezobrazovat pořady kratší než"
 
@@ -148,11 +148,11 @@ msgstr "Skrývat dokončené pořady nebo dokončené a probíhající pořady."
 msgid "Import all services from '%s'"
 msgstr "Importovat všechny programy z '%s'"
 
-#: ../configuration.py:20
+#: ../configuration.py:21
 msgid "Latin2"
 msgstr "Latin2"
 
-#: ../configuration.py:21
+#: ../configuration.py:22
 msgid "Latin2 with 'Ch'"
 msgstr "Latin2 s 'Ch'"
 
@@ -168,7 +168,7 @@ msgstr "Načíst seznam"
 msgid "MENU"
 msgstr ""
 
-#: ../settings.py:62
+#: ../settings.py:63
 msgid "Maximum event duration must not be shorter than minimum event duration."
 msgstr "Nastavená maximální délka nesmí být kratší než nastavené minimum."
 
@@ -176,7 +176,7 @@ msgstr "Nastavená maximální délka nesmí být kratší než nastavené minim
 msgid "No"
 msgstr ""
 
-#: ../configuration.py:14
+#: ../configuration.py:15
 msgid "No limit"
 msgstr "Bez omezení"
 
@@ -242,7 +242,7 @@ msgstr[2] "Programů: %d"
 msgid "Set cursor to the currently playing event when opening TimerPlanner."
 msgstr "Při otevření pluginu umístit kurzor na právě přehrávaný pořad."
 
-#: ../ui.py:324 ../services.py:159
+#: ../ui.py:329 ../services.py:159
 msgid "Settings"
 msgstr "Nastavení"
 
@@ -254,27 +254,27 @@ msgstr "Nastavení se nepodařilo načíst. Před uložením opravte soubor s na
 msgid "Show event progress bars for ongoing events."
 msgstr "Zobrazuje se stav u probíhajících pořadů."
 
-#: ../settings.py:47
+#: ../settings.py:48
 msgid "Show in channels selection menu"
 msgstr "Zobrazovat v menu výběru kanálů"
 
-#: ../settings.py:46
+#: ../settings.py:47
 msgid "Show in event menu"
 msgstr "Zobrazovat v event menu"
 
-#: ../settings.py:45
+#: ../settings.py:46
 msgid "Show in extensions menu"
 msgstr "Zobrazovat v menu rozšíření"
 
-#: ../settings.py:47
+#: ../settings.py:48
 msgid "Show plugin 'TimerPlanner' in the channel selection context menu."
 msgstr "Zobrazovat plugin 'TimerPlanner' v menu výběru kanálů."
 
-#: ../settings.py:46
+#: ../settings.py:47
 msgid "Show plugin 'TimerPlanner' in the event menu."
 msgstr "Zobrazovat plugin 'TimerPlanner' v event menu."
 
-#: ../settings.py:45
+#: ../settings.py:46
 msgid "Show plugin 'TimerPlanner' in the extension menu."
 msgstr "Zobrazovat plugin 'TimerPlanner' v menu rozšíření."
 
@@ -282,19 +282,19 @@ msgstr "Zobrazovat plugin 'TimerPlanner' v menu rozšíření."
 msgid "Show progress bars"
 msgstr "Zobrazovat průběhy"
 
-#: ../settings.py:44
+#: ../settings.py:45
 msgid "Show rating column regardless of the selected sorting mode."
 msgstr "Zobrazovat sloupec s minimálním věkem vždy, bez ohledu na režim třídění."
 
-#: ../configuration.py:18
+#: ../configuration.py:19
 msgid "Standard"
 msgstr "Standardní"
 
-#: ../settings.py:110
+#: ../settings.py:113
 msgid "Temporary maximum event duration. Valid until the plugin is closed."
 msgstr "Maximální dočasná délka zobrazovaných pořadů. Platí do vypnutí pluginu."
 
-#: ../settings.py:109
+#: ../settings.py:112
 msgid "Temporary minimum event duration. Valid until the plugin is closed."
 msgstr "Minimální dočasná délka zobrazovaných pořadů. Platí do vypnutí pluginu."
 
@@ -302,7 +302,7 @@ msgstr "Minimální dočasná délka zobrazovaných pořadů. Platí do vypnutí
 msgid "This service is already selected."
 msgstr "Tento program je již vybrán."
 
-#: ../ui.py:322
+#: ../ui.py:327
 msgid "Timer Overview"
 msgstr ""
 
@@ -314,7 +314,7 @@ msgstr "Plánovač časovačů pro zvolené programy"
 msgid "TimerPlanner"
 msgstr "TimerPlanner"
 
-#: ../ui.py:330
+#: ../ui.py:335
 msgid "TimerPlanner - Select action"
 msgstr "TimerPlanner - zvolte akci"
 
@@ -322,7 +322,7 @@ msgstr "TimerPlanner - zvolte akci"
 msgid "TimerPlanner - Services"
 msgstr "TimerPlanner - programy"
 
-#: ../settings.py:105
+#: ../settings.py:108
 msgid "TimerPlanner - temporary settings"
 msgstr "TimerPlanner - dočasná nastavení"
 
@@ -331,6 +331,14 @@ msgstr "TimerPlanner - dočasná nastavení"
 msgid "TimerPlanner v%s - Settings"
 msgstr "TimerPlanner v%s - nastavení"
 
-#: ../ui.py:239 ../ui.py:442
+#: ../settings.py:41
+msgid "Update event status every minute"
+msgstr "Aktualizace stav událostí každou minutu"
+
+#: ../settings.py:41
+msgid "Update progress bars and event colors every minute without reloading the EPG list."
+msgstr "Aktualizovat průběhy a barvy událostí každou minutu bez znovunačítání seznamu EPG."
+
+#: ../ui.py:239 ../ui.py:454
 msgid "Zap"
 msgstr "Přepnout"
