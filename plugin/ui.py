@@ -3,6 +3,7 @@ from time import time, perf_counter
 
 from Components.ActionMap import ActionMap, HelpableActionMap
 from Components.EpgList import EPGList, EPG_TYPE_SINGLE, Rect
+from Components.MultiContent import MultiContentEntryProgress
 from Components.config import config
 from Screens.EpgSelection import EPGSelection
 from Screens.MessageBox import MessageBox
@@ -17,12 +18,14 @@ from .epgdata import collect_events, event_key, selection_index, sort_events
 from .services import TimerPlannerServiceEditor, service_name
 from .storage import load_legacy_services, load_services
 
-VERSION = "1.03"
+VERSION = "1.04"
 
 COLOR_GRAY = 0x00D0D0D0
 COLOR_RATING = 0x000080B0
 COLOR_ONGOING = 0x00B8FFE8
 COLOR_FINISHED = 0x00808080
+COLOR_BARS = 0x0000080B0
+COLOR_BARS_BORDER = 0x00808080
 
 class TimerPlannerList(EPGList):
 	"""SingleEPG rows with an additional service column and a shared event list."""
@@ -94,6 +97,11 @@ class TimerPlannerList(EPGList):
 		now = time()
 		ended = beginTime is not None and duration is not None and beginTime + duration <= now
 		ongoing = beginTime is not None and duration is not None and beginTime <= now < beginTime + duration
+		# progress bars for ongoing events
+		progress_width = applySkinFactor(40) if ongoing and cfg.showprogress.value else 0
+		progress_gap = applySkinFactor(8)
+		event_end = self.descr_rect.x + self.sidesMargin + self.descr_rect.w
+		progress_x = event_end - progress_width
 		# SingleEPG offsets the event text after timer icons but keeps its full
 		# width. Clip it to our narrower event column so it cannot cover the
 		# service or rating columns.
@@ -106,7 +114,7 @@ class TimerPlannerList(EPGList):
 					entry[6] = RT_HALIGN_LEFT | RT_VALIGN_CENTER
 				if entry[7] == title and self.descr_rect.x <= entry[1] < self.service_rect.x:
 					entry[5] = 2
-					entry[3] = max(0, self.descr_rect.x + self.sidesMargin + self.descr_rect.w - entry[1])
+					entry[3] = max(0, (progress_x - progress_gap if progress_width else event_end) - entry[1])
 					entry.extend([None] * max(0, 10 - len(entry)))
 					if ended:		# finished events color
 						entry[8] = COLOR_FINISHED
@@ -123,6 +131,23 @@ class TimerPlannerList(EPGList):
 					entry[8] = COLOR_RATING	# rating
 					entry[9] = None		# selected row: color from skin
 				row[index] = tuple(entry)
+		if progress_width: # use two progress bars to give the border a separate color
+			height = applySkinFactor(6)
+			y = self.descr_rect.y + (self.descr_rect.h - height) // 2
+			row.append(MultiContentEntryProgress(	# border only
+				pos=(progress_x, y),
+				size=(progress_width, height),
+				percent=0,
+				borderWidth=1,
+				foreColor=COLOR_BARS_BORDER,
+				foreColorSelected=COLOR_BARS_BORDER))
+			row.append(MultiContentEntryProgress(	# colored progress fill without a border
+				pos=(progress_x + 1, y + 1),
+				size=(progress_width - 2, height - 2),
+				percent=int(100 * (now - beginTime) / duration),
+				borderWidth=0,
+				foreColor=COLOR_BARS,
+				foreColorSelected=COLOR_BARS))
 		r = self.service_rect
 		row.append((eListboxPythonMultiContent.TYPE_TEXT, r.x + self.sidesMargin, r.y, r.w, r.h, 3, RT_HALIGN_LEFT | RT_VALIGN_CENTER, self.service_names.get(service, "<N/A>"), COLOR_GRAY, None)) # service
 		return row
@@ -333,6 +358,7 @@ class TimerPlannerSelection(EPGSelection):
 		self.serviceEditorSettings = (
 			cfg.alphabetsort, cfg.hide_started, cfg.minimum_duration,
 			cfg.maximum_duration, cfg.showrating, cfg.currentservice,
+			cfg.showprogress,
 		)
 		self.serviceEditorValues = tuple(item.value for item in self.serviceEditorSettings)
 		self.session.openWithCallback(self.servicesEdited, TimerPlannerServiceEditor)

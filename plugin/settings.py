@@ -36,6 +36,7 @@ class TimerPlannerSetup(Screen, ConfigListScreen, HelpableScreen):
 		menu = []
 		menu.append((_("Hide events"), cfg.hide_started, _("Hide finished events, or both finished and ongoing events.")))
 		if cfg.hide_started.value != "true":
+			menu.append((4 * " " + _("Show progress bars"), cfg.showprogress, _("Show event progress bars for ongoing events.")))
 			menu.append((4 * " " + _("Cursor on current service"), cfg.currentservice, _("Set cursor to the currently playing event when opening TimerPlanner.")))
 		menu.append((_("Hide events shorter than"), cfg.minimum_duration, _("Default setting for the minimum duration of displayed events.")))
 		menu.append((_("Hide events longer than"), cfg.maximum_duration, _("Default setting for the maximum duration of displayed events.")))
@@ -70,12 +71,13 @@ class TimerPlannerSetup(Screen, ConfigListScreen, HelpableScreen):
 			entry[1].save()
 		if cfg.hide_started.value == "true":
 			cfg.currentservice.save()
+			cfg.showprogress.save()
 		configfile.save()
 		self.refreshPlugins()
 		self.close(True)
 
 	def keyCancel(self):
-		if self["config"].isChanged() or cfg.currentservice.isChanged():
+		if self["config"].isChanged() or cfg.currentservice.isChanged() or cfg.showprogress.isChanged():
 			self.session.openWithCallback(self.cancelConfirmed, MessageBox,
 				_("Close without saving changes?"), MessageBox.TYPE_YESNO, default=False)
 		else:
@@ -86,6 +88,7 @@ class TimerPlannerSetup(Screen, ConfigListScreen, HelpableScreen):
 			for entry in self.entries:
 				entry[1].cancel()
 			cfg.currentservice.cancel()
+			cfg.showprogress.cancel()
 			self.close(False)
 
 	def refreshPlugins(self):
