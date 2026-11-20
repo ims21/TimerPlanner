@@ -18,7 +18,7 @@ from .epgdata import collect_events, event_key, selection_index, sort_events
 from .services import TimerPlannerServiceEditor, service_name
 from .storage import load_legacy_services, load_services
 
-VERSION = "1.05"
+VERSION = "1.06"
 
 COLOR_GRAY = 0x00D0D0D0
 COLOR_RATING = 0x000080B0
@@ -26,10 +26,12 @@ COLOR_ONGOING = 0x00B8FFE8
 COLOR_FINISHED = 0x00808080
 COLOR_BARS = 0x0000080B0
 COLOR_BARS_BORDER = 0x00808080
+COLOR_CURRENT = 0x00A0F0A0
 
 class TimerPlannerList(EPGList):
 	"""SingleEPG rows with an additional service column and a shared event list."""
-	def __init__(self, selChangedCB, timer):
+	def __init__(self, selChangedCB, timer, nav):
+		self.nav = nav
 		EPGList.__init__(self, type=EPG_TYPE_SINGLE, selChangedCB=selChangedCB, timer=timer)
 		self.list = []
 		self.all_events = []
@@ -97,6 +99,8 @@ class TimerPlannerList(EPGList):
 		now = time()
 		ended = beginTime is not None and duration is not None and beginTime + duration <= now
 		ongoing = beginTime is not None and duration is not None and beginTime <= now < beginTime + duration
+		playing = self.nav.getCurrentlyPlayingServiceReference() if ongoing else None
+		info_color = COLOR_CURRENT if playing is not None and service == playing.toString() else COLOR_GRAY
 		event_end = self.descr_rect.x + self.sidesMargin + self.descr_rect.w
 		# progress bars for ongoing events
 		progress_width = applySkinFactor(40) if ongoing and cfg.showprogress.value else 0
@@ -124,7 +128,7 @@ class TimerPlannerList(EPGList):
 						entry[9] = None
 				if index in (1, 2):		# day, date/time
 					entry.extend([None] * max(0, 10 - len(entry)))
-					entry[8] = COLOR_GRAY	# row: gray
+					entry[8] = COLOR_GRAY	# row: gray  (or can be here 'info_color' for current)
 					entry[9] = None		# selected row: color from skin
 				elif self.showRating() and index == 3:	# rating
 					entry.extend([None] * max(0, 10 - len(entry)))
@@ -149,7 +153,7 @@ class TimerPlannerList(EPGList):
 				foreColor=COLOR_BARS,
 				foreColorSelected=COLOR_BARS))
 		r = self.service_rect
-		row.append((eListboxPythonMultiContent.TYPE_TEXT, r.x + self.sidesMargin, r.y, r.w, r.h, 3, RT_HALIGN_LEFT | RT_VALIGN_CENTER, self.service_names.get(service, "<N/A>"), COLOR_GRAY, None)) # service
+		row.append((eListboxPythonMultiContent.TYPE_TEXT, r.x + self.sidesMargin, r.y, r.w, r.h, 3, RT_HALIGN_LEFT | RT_VALIGN_CENTER, self.service_names.get(service, "<N/A>"), info_color, None)) # service
 		return row
 
 	def reload(self, references, sorting=0, filtering=0):
@@ -234,7 +238,7 @@ class TimerPlannerSelection(EPGSelection):
 			"5": (self.reloadEPG, _("Refresh EPG")),
 		}, -2)
 		self.skinName = ["TimerPlannerSelection", "EPGSelection"]
-		self["list"] = TimerPlannerList(self.onSelectionChanged, session.nav.RecordTimer)
+		self["list"] = TimerPlannerList(self.onSelectionChanged, session.nav.RecordTimer, session.nav)
 		self["key_blue"].setText(_("Services"))
 		self["key_red"].setText(_("Zap"))
 		self.custom_ready = True
@@ -389,6 +393,7 @@ class TimerPlannerSelection(EPGSelection):
 			if adjust and infobar is not None and hasattr(infobar, "servicelist"):
 				infobar.servicelist.servicelist.setCurrent(reference, True)
 			self._previewOriginalService = original
+			self.refreshTimerIcons()
 			if retval is not None:
 				EPGSelection.close(self, *retval)
 
