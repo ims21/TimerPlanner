@@ -18,7 +18,7 @@ from .epgdata import collect_events, event_key, selection_index, sort_events
 from .services import TimerPlannerServiceEditor, service_name
 from .storage import load_legacy_services, load_services
 
-VERSION = "1.07"
+VERSION = "1.08"
 
 COLOR_GRAY = 0x00D0D0D0
 COLOR_RATING = 0x000080B0
@@ -27,11 +27,13 @@ COLOR_FINISHED = 0x00808080
 COLOR_BARS = 0x0000080B0
 COLOR_BARS_BORDER = 0x00808080
 COLOR_CURRENT = 0x00A0F0A0
+COLOR_RETURN = 0x00CC66AA
 
 class TimerPlannerList(EPGList):
 	"""SingleEPG rows with an additional service column and a shared event list."""
 	def __init__(self, selChangedCB, timer, nav):
 		self.nav = nav
+		self.return_service = None
 		EPGList.__init__(self, type=EPG_TYPE_SINGLE, selChangedCB=selChangedCB, timer=timer)
 		self.list = []
 		self.all_events = []
@@ -129,6 +131,8 @@ class TimerPlannerList(EPGList):
 				if index in (1, 2):		# day, date/time
 					entry.extend([None] * max(0, 10 - len(entry)))
 					entry[8] = info_color	# row in info_color
+					if index == 1 and ongoing and service == self.return_service:
+						entry[8] = COLOR_RETURN # colored day for original service
 					entry[9] = None		# selected row: color from skin
 				elif self.showRating() and index == 3:	# rating
 					entry.extend([None] * max(0, 10 - len(entry)))
@@ -393,6 +397,7 @@ class TimerPlannerSelection(EPGSelection):
 			if adjust and infobar is not None and hasattr(infobar, "servicelist"):
 				infobar.servicelist.servicelist.setCurrent(reference, True)
 			self._previewOriginalService = original
+			self["list"].return_service = original.toString() if original is not None else None
 			self.refreshTimerIcons()
 			if retval is not None:
 				EPGSelection.close(self, *retval)
