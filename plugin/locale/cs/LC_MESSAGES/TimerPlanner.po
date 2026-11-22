@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 12:01+0100\n"
-"PO-Revision-Date: 2026-11-19 12:07+0100\n"
+"POT-Creation-Date: 2026-11-22 10:55+0100\n"
+"PO-Revision-Date: 2026-11-22 10:55+0100\n"
 "Last-Translator: ims <ims@openpli.org>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -60,7 +60,7 @@ msgstr ""
 "Operace se seznamem programů se nezdařila:\n"
 "%s"
 
-#: ../ui.py:265 ../services.py:140
+#: ../ui.py:269 ../services.py:140
 #, python-format
 msgid ""
 "Cannot load TimerPlanner settings:\n"
@@ -103,19 +103,19 @@ msgstr "Smazat seznam"
 msgid "Delete list '%s'?"
 msgstr "Opravdu smazat seznam '%s'?"
 
-#: ../ui.py:294
+#: ../ui.py:298
 msgid "Events alphabetically"
 msgstr "události abecedně"
 
-#: ../ui.py:294
+#: ../ui.py:298
 msgid "Events by rating"
 msgstr "události podle věku"
 
-#: ../ui.py:294
+#: ../ui.py:298
 msgid "Events by time"
 msgstr "události podle času"
 
-#: ../ui.py:233
+#: ../ui.py:237
 msgid "Filter by event duration"
 msgstr "Filtr pro délku pořadů"
 
@@ -197,11 +197,11 @@ msgstr "Přepsat seznam %s?"
 msgid "Press BLUE to add a service from a bouquet."
 msgstr "Pro přidání programu z přehledu stiskněte Modré."
 
-#: ../ui.py:230
-msgid "Preview service / return"
-msgstr "Náhled programu / návrat"
+#: ../ui.py:233
+msgid "Preview service"
+msgstr "Náhled programu"
 
-#: ../ui.py:234
+#: ../ui.py:238
 msgid "Refresh EPG"
 msgstr ""
 
@@ -213,6 +213,10 @@ msgstr "Smazat"
 #, python-format
 msgid "Replace the current selection with list '%s'?"
 msgstr "Nahradit aktuální výběr seznamem '%s'?"
+
+#: ../ui.py:234
+msgid "Return to original service"
+msgstr "Návrat na původní program"
 
 #: ../services.py:116
 msgid "Save"
@@ -226,7 +230,7 @@ msgstr "Uložit jako seznam"
 msgid "Select service for TimerPlanner"
 msgstr "Vyberte program pro TimerPlanner"
 
-#: ../ui.py:238
+#: ../ui.py:242
 msgid "Services"
 msgstr "Programy"
 
@@ -242,7 +246,7 @@ msgstr[2] "Programů: %d"
 msgid "Set cursor to the currently playing event when opening TimerPlanner."
 msgstr "Při otevření pluginu umístit kurzor na právě přehrávaný pořad."
 
-#: ../ui.py:329 ../services.py:159
+#: ../ui.py:333 ../services.py:159
 msgid "Settings"
 msgstr "Nastavení"
 
@@ -302,7 +306,7 @@ msgstr "Minimální dočasná délka zobrazovaných pořadů. Platí do vypnutí
 msgid "This service is already selected."
 msgstr "Tento program je již vybrán."
 
-#: ../ui.py:327
+#: ../ui.py:331
 msgid "Timer Overview"
 msgstr ""
 
@@ -314,7 +318,7 @@ msgstr "Plánovač časovačů pro zvolené programy"
 msgid "TimerPlanner"
 msgstr "TimerPlanner"
 
-#: ../ui.py:335
+#: ../ui.py:339
 msgid "TimerPlanner - Select action"
 msgstr "TimerPlanner - zvolte akci"
 
@@ -339,6 +343,6 @@ msgstr "Aktualizace stav událostí každou minutu"
 msgid "Update progress bars and event colors every minute without reloading the EPG list."
 msgstr "Aktualizovat průběhy a barvy událostí každou minutu bez znovunačítání seznamu EPG."
 
-#: ../ui.py:239 ../ui.py:454
+#: ../ui.py:243 ../ui.py:462
 msgid "Zap"
 msgstr "Přepnout"

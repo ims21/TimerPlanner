@@ -18,7 +18,7 @@ from .epgdata import collect_events, event_key, selection_index, sort_events
 from .services import TimerPlannerServiceEditor, service_name
 from .storage import load_legacy_services, load_services
 
-VERSION = "1.06"
+VERSION = "1.07"
 
 COLOR_GRAY = 0x00D0D0D0
 COLOR_RATING = 0x000080B0
@@ -128,7 +128,7 @@ class TimerPlannerList(EPGList):
 						entry[9] = None
 				if index in (1, 2):		# day, date/time
 					entry.extend([None] * max(0, 10 - len(entry)))
-					entry[8] = info_color	# row in info_color
+					entry[8] = COLOR_GRAY	# row: gray  (or can be here 'info_color' for current
 					entry[9] = None		# selected row: color from skin
 				elif self.showRating() and index == 3:	# rating
 					entry.extend([None] * max(0, 10 - len(entry)))
@@ -228,10 +228,10 @@ class TimerPlannerSelection(EPGSelection):
 		self["customEPGActions"] = ActionMap(["EPGSelectActions"], {
 			"blue": self.blueButtonPressed,
 		}, -2)
-		# Play/PlayPause has a dedicated EPGCatchUpActions context in E2.
 		self["CatchUpActions"].setEnabled(False)
-		self["customPreviewActions"] = HelpableActionMap(self, "EPGCatchUpActions", {
-			"play": (self.togglePreview, _("Preview service / return")),
+		self["customPreviewActions"] = HelpableActionMap(self, "TimerPlannerPreviewActions", {
+			"play": (self.previewService, _("Preview service")),
+			"play_long": (self.returnFromPreview, _("Return to original service")),
 		}, -3)
 		self["durationFilterActions"] = HelpableActionMap(self, "NumberActions", {
 			"2": (self.openDurationFilter, _("Filter by event duration")),
@@ -403,14 +403,17 @@ class TimerPlannerSelection(EPGSelection):
 		else:
 			confirmed(True)
 
-	def togglePreview(self):
+	def previewService(self):
+		cur = self["list"].getCurrent()
+		current = self.session.nav.getCurrentlyPlayingServiceOrGroup()
+		if cur and cur[1] and current is not None and current != cur[1].ref:
+			original = self._previewOriginalService if self._previewOriginalService is not None else current
+			self._switchService(cur[1].ref, original=original)
+
+	def returnFromPreview(self):
 		if self._previewOriginalService is not None:
 			self._switchService(self._previewOriginalService)
-			return
-		cur = self["list"].getCurrent()
-		original = self.session.nav.getCurrentlyPlayingServiceOrGroup()
-		if cur and cur[1] and original is not None and original != cur[1].ref:
-			self._switchService(cur[1].ref, original=original)
+
 
 	def close(self, *retval):
 		if self._switchPending:

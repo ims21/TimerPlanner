@@ -1,0 +1,8 @@
+<keymap>
+	<map context="TimerPlannerPreviewActions">
+		<key id="KEY_PLAY" mapto="play" flags="b" />
+		<key id="KEY_PLAY" mapto="play_long" flags="l" />
+		<key id="KEY_PLAYPAUSE" mapto="play" flags="b" />
+		<key id="KEY_PLAYPAUSE" mapto="play_long" flags="l" />
+	</map>
+</keymap>
