@@ -128,7 +128,7 @@ class TimerPlannerList(EPGList):
 						entry[9] = None
 				if index in (1, 2):		# day, date/time
 					entry.extend([None] * max(0, 10 - len(entry)))
-					entry[8] = COLOR_GRAY	# row: gray  (or can be here 'info_color' for current
+					entry[8] = info_color	# row in info_color
 					entry[9] = None		# selected row: color from skin
 				elif self.showRating() and index == 3:	# rating
 					entry.extend([None] * max(0, 10 - len(entry)))
