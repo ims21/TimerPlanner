@@ -27,7 +27,7 @@ COLOR_FINISHED = 0x00808080
 COLOR_BARS = 0x0000080B0
 COLOR_BARS_BORDER = 0x00808080
 COLOR_CURRENT = 0x00A0F0A0
-COLOR_RETURN = 0x00CC66AA
+COLOR_RETURN = 0x00D060B0
 
 class TimerPlannerList(EPGList):
 	"""SingleEPG rows with an additional service column and a shared event list."""
@@ -131,7 +131,7 @@ class TimerPlannerList(EPGList):
 				if index in (1, 2):		# day, date/time
 					entry.extend([None] * max(0, 10 - len(entry)))
 					entry[8] = info_color	# row in info_color
-					if index == 1 and ongoing and service == self.return_service:
+					if index == 1 and ongoing and service == (self.return_service or (playing.toString() if playing is not None else None)):
 						entry[8] = COLOR_RETURN # colored day for original service
 					entry[9] = None		# selected row: color from skin
 				elif self.showRating() and index == 3:	# rating
