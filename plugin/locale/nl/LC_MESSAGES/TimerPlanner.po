@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TimerPlanner\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-22 10:55+0100\n"
+"POT-Creation-Date: 2026-11-23 19:44+0100\n"
 "PO-Revision-Date: 2026-11-13 12:18+0100\n"
 "Last-Translator: ims <ims@openpli.org>\n"
 "Language-Team: Nederlands\n"
@@ -26,24 +26,12 @@ msgid "Add"
 msgstr "Toevoegen"
 
 #: ../settings.py:44
-msgid "Alphabetical sorting"
-msgstr "Alfabetisch sorteren"
-
-#: ../settings.py:45
 msgid "Always show rating"
 msgstr ""
 
-#: ../settings.py:44
-msgid "Applies to 'A-Z' only. 'Standard' disables character conversion."
-msgstr "Geldt alleen voor 'A-Z'. 'Standaard' schakelt tekenomzetting uit."
-
-#: ../settings.py:116
+#: ../settings.py:115
 msgid "Apply"
 msgstr "Toepassen"
-
-#: ../configuration.py:20
-msgid "CS/SK"
-msgstr "CS/SK"
 
 #: ../services.py:115
 msgid "Cancel"
@@ -58,7 +46,7 @@ msgstr ""
 "Kan de zenderlijst niet openen:\n"
 "%s"
 
-#: ../ui.py:269 ../services.py:140
+#: ../ui.py:271 ../services.py:140
 #, python-format
 msgid ""
 "Cannot load TimerPlanner settings:\n"
@@ -76,7 +64,7 @@ msgstr ""
 "Kan de instellingen van TimerPlanner niet opslaan:\n"
 "%s"
 
-#: ../settings.py:84 ../services.py:291
+#: ../settings.py:83 ../services.py:291
 msgid "Close without saving changes?"
 msgstr "Afsluiten zonder de wijzigingen op te slaan?"
 
@@ -101,21 +89,21 @@ msgstr "Lijst verwijderen"
 msgid "Delete list '%s'?"
 msgstr "Lijst '%s' verwijderen?"
 
-#: ../ui.py:298
+#: ../ui.py:300
 msgid "Events alphabetically"
 msgstr ""
 
-#: ../ui.py:298
+#: ../ui.py:300
 #, fuzzy
 msgid "Events by rating"
 msgstr "op leeftijdsclassificatie"
 
-#: ../ui.py:298
+#: ../ui.py:300
 #, fuzzy
 msgid "Events by time"
 msgstr "op tijd"
 
-#: ../ui.py:237
+#: ../ui.py:239
 msgid "Filter by event duration"
 msgstr "Filteren op programmaduur"
 
@@ -131,11 +119,11 @@ msgstr "Afgelopen en lopend"
 msgid "Hide events"
 msgstr "Programma's verbergen"
 
-#: ../settings.py:43 ../settings.py:113
+#: ../settings.py:43 ../settings.py:112
 msgid "Hide events longer than"
 msgstr "Verberg programma's langer dan"
 
-#: ../settings.py:42 ../settings.py:112
+#: ../settings.py:42 ../settings.py:111
 msgid "Hide events shorter than"
 msgstr "Verberg programma's korter dan"
 
@@ -147,14 +135,6 @@ msgstr "Verberg afgelopen programma's of zowel afgelopen als lopende programma's
 #, python-format
 msgid "Import all services from '%s'"
 msgstr "Alle zenders uit '%s' importeren"
-
-#: ../configuration.py:21
-msgid "Latin2"
-msgstr "Latin2"
-
-#: ../configuration.py:22
-msgid "Latin2 with 'Ch'"
-msgstr "Latin2 met 'Ch'"
 
 #: ../services.py:172
 msgid "List name"
@@ -168,7 +148,7 @@ msgstr "Lijst laden"
 msgid "MENU"
 msgstr "MENU"
 
-#: ../settings.py:63
+#: ../settings.py:62
 msgid "Maximum event duration must not be shorter than minimum event duration."
 msgstr "De maximale programmaduur mag niet korter zijn dan de minimale programmaduur."
 
@@ -197,12 +177,12 @@ msgstr "Lijst '%s' overschrijven?"
 msgid "Press BLUE to add a service from a bouquet."
 msgstr "Druk op BLAUW om een zender uit een boeket toe te voegen."
 
-#: ../ui.py:233
+#: ../ui.py:235
 #, fuzzy
 msgid "Preview service"
 msgstr "Zender bekijken / terug"
 
-#: ../ui.py:238
+#: ../ui.py:240
 msgid "Refresh EPG"
 msgstr ""
 
@@ -215,7 +195,7 @@ msgstr "Verwijderen"
 msgid "Replace the current selection with list '%s'?"
 msgstr "Huidige selectie vervangen door lijst '%s'?"
 
-#: ../ui.py:234
+#: ../ui.py:236
 msgid "Return to original service"
 msgstr ""
 
@@ -231,7 +211,7 @@ msgstr "Opslaan als lijst"
 msgid "Select service for TimerPlanner"
 msgstr "Kies een zender voor TimerPlanner"
 
-#: ../ui.py:242
+#: ../ui.py:244
 msgid "Services"
 msgstr "Zenders"
 
@@ -246,7 +226,7 @@ msgstr[1] "Zenders: %d"
 msgid "Set cursor to the currently playing event when opening TimerPlanner."
 msgstr ""
 
-#: ../ui.py:333 ../services.py:159
+#: ../ui.py:335 ../services.py:159
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -258,27 +238,27 @@ msgstr "De instellingen konden niet worden geladen. Herstel het instellingenbest
 msgid "Show event progress bars for ongoing events."
 msgstr ""
 
-#: ../settings.py:48
+#: ../settings.py:47
 msgid "Show in channels selection menu"
 msgstr "Weergeven in het zenderkeuzemenu"
 
-#: ../settings.py:47
+#: ../settings.py:46
 msgid "Show in event menu"
 msgstr "Weergeven in het programmamenu"
 
-#: ../settings.py:46
+#: ../settings.py:45
 msgid "Show in extensions menu"
 msgstr "Weergeven in het uitbreidingenmenu"
 
-#: ../settings.py:48
+#: ../settings.py:47
 msgid "Show plugin 'TimerPlanner' in the channel selection context menu."
 msgstr "Plugin 'TimerPlanner' weergeven in het contextmenu van de zenderkeuze."
 
-#: ../settings.py:47
+#: ../settings.py:46
 msgid "Show plugin 'TimerPlanner' in the event menu."
 msgstr "Plugin 'TimerPlanner' weergeven in het programmamenu."
 
-#: ../settings.py:46
+#: ../settings.py:45
 msgid "Show plugin 'TimerPlanner' in the extension menu."
 msgstr "Plugin 'TimerPlanner' weergeven in het uitbreidingenmenu."
 
@@ -286,20 +266,16 @@ msgstr "Plugin 'TimerPlanner' weergeven in het uitbreidingenmenu."
 msgid "Show progress bars"
 msgstr ""
 
-#: ../settings.py:45
+#: ../settings.py:44
 msgid "Show rating column regardless of the selected sorting mode."
 msgstr ""
 
-#: ../configuration.py:19
-msgid "Standard"
-msgstr "Standaard"
-
-#: ../settings.py:113
+#: ../settings.py:112
 #, fuzzy
 msgid "Temporary maximum event duration. Valid until the plugin is closed."
 msgstr "Tijdelijke instelling. Geldt alleen totdat TimerPlanner wordt afgesloten."
 
-#: ../settings.py:112
+#: ../settings.py:111
 #, fuzzy
 msgid "Temporary minimum event duration. Valid until the plugin is closed."
 msgstr "Tijdelijke instelling. Geldt alleen totdat TimerPlanner wordt afgesloten."
@@ -308,7 +284,7 @@ msgstr "Tijdelijke instelling. Geldt alleen totdat TimerPlanner wordt afgesloten
 msgid "This service is already selected."
 msgstr "Deze zender is al geselecteerd."
 
-#: ../ui.py:331
+#: ../ui.py:333
 msgid "Timer Overview"
 msgstr "Timeroverzicht"
 
@@ -320,7 +296,7 @@ msgstr "Timer planner voor geselecteerde zenders"
 msgid "TimerPlanner"
 msgstr "TimerPlanner"
 
-#: ../ui.py:339
+#: ../ui.py:341
 #, fuzzy
 msgid "TimerPlanner - Select action"
 msgstr "TimerPlanner v%s - Instellingen"
@@ -329,7 +305,7 @@ msgstr "TimerPlanner v%s - Instellingen"
 msgid "TimerPlanner - Services"
 msgstr "TimerPlanner - Zenders"
 
-#: ../settings.py:108
+#: ../settings.py:107
 #, fuzzy
 msgid "TimerPlanner - temporary settings"
 msgstr "TimerPlanner v%s - Instellingen"
@@ -347,6 +323,6 @@ msgstr ""
 msgid "Update progress bars and event colors every minute without reloading the EPG list."
 msgstr ""
 
-#: ../ui.py:243 ../ui.py:462
+#: ../ui.py:245 ../ui.py:465
 msgid "Zap"
 msgstr "Zappen"
