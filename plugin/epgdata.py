@@ -1,5 +1,7 @@
 """EPG row handling. Row format is OpenPLi's RIBDT."""
 
+from Components.Language import alphabeticSortKey
+
 
 def event_key(row):
 	# Event IDs are only unique within a service, and may later be reused.
@@ -24,14 +26,11 @@ def collect_events(query, references, begin):
 	return result
 
 
-def sort_events(rows, sorting, rating=None, alphabet="standard"):
+def sort_events(rows, sorting, rating=None):
 	if sorting == 2:
 		return sorted(rows, key=lambda row: (rating(row), row[2], row[0], row[1]))
-	if sorting == 1 and alphabet != "standard":
-		from .sortkeys import alphabetic_key
-		return sorted(rows, key=lambda row: (alphabetic_key(row[4], alphabet), row[2], row[0], row[1]))
 	if sorting == 1:
-		return sorted(rows, key=lambda row: (row[4].lower(), row[2], row[0], row[1]))
+		return sorted(rows, key=lambda row: (alphabeticSortKey(row[4].lower()), row[2], row[0], row[1]))
 	return sorted(rows, key=lambda row: (row[2], row[4].lower(), row[0], row[1]))
 
 

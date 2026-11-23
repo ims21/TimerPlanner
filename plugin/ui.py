@@ -18,7 +18,7 @@ from .epgdata import collect_events, event_key, selection_index, sort_events
 from .services import TimerPlannerServiceEditor, service_name
 from .storage import load_legacy_services, load_services
 
-VERSION = "1.08"
+VERSION = "1.09"
 
 COLOR_GRAY = 0x00D0D0D0
 COLOR_RATING = 0x000080B0
@@ -200,9 +200,7 @@ class TimerPlannerList(EPGList):
 		if sorting != 1:
 			return sort_events(rows, sorting, self.getEventRating)
 		start = perf_counter()
-		result = sort_events(rows, sorting, self.getEventRating, cfg.alphabetsort.value)
-		print("[TimerPlanner] A-Z sort (%s): %d events, %.1f ms" %
-			(cfg.alphabetsort.value, len(rows), (perf_counter() - start) * 1000))
+		result = sort_events(rows, sorting, self.getEventRating)
 		return result
 
 	def sortSingleEPG(self, sorting):
@@ -369,7 +367,7 @@ class TimerPlannerSelection(EPGSelection):
 
 	def blueButtonPressed(self):
 		self.serviceEditorSettings = (
-			cfg.alphabetsort, cfg.hide_started, cfg.minimum_duration,
+			cfg.hide_started, cfg.minimum_duration,
 			cfg.maximum_duration, cfg.showrating, cfg.currentservice,
 			cfg.showprogress,
 		)

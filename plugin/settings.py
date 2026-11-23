@@ -41,7 +41,6 @@ class TimerPlannerSetup(Screen, ConfigListScreen, HelpableScreen):
 			menu.append((4 * " " + _("Update event status every minute"), cfg.update_event_status, _("Update progress bars and event colors every minute without reloading the EPG list.")))
 		menu.append((_("Hide events shorter than"), cfg.minimum_duration, _("Default setting for the minimum duration of displayed events.")))
 		menu.append((_("Hide events longer than"), cfg.maximum_duration, _("Default setting for the maximum duration of displayed events.")))
-		menu.append((_("Alphabetical sorting"), cfg.alphabetsort, _("Applies to 'A-Z' only. 'Standard' disables character conversion.")))
 		menu.append((_("Always show rating"), cfg.showrating, _("Show rating column regardless of the selected sorting mode.")))
 		menu.append((_("Show in extensions menu"), cfg.extensionsmenu, _("Show plugin 'TimerPlanner' in the extension menu.")))
 		menu.append((_("Show in event menu"), cfg.eventmenu, _("Show plugin 'TimerPlanner' in the event menu.")))
